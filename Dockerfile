@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 RUN apt-get upgrade && apt-get update -y &&\
-    apt-get install apache2 rsync libxml2-utils tzdata -y &&\
+    DEBIAN_FRONTEND=noninteractive apt-get install apache2 rsync libxml2-utils tzdata -y &&\
     ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime &&\
     dpkg-reconfigure -f noninteractive tzdata
 
